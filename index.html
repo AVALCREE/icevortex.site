@@ -5,40 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Welcome</title>
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    body {
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: "Segoe UI Semilight", Tahoma, Geneva, Verdana, sans-serif, Arial, Helvetica, sans-serif;
-      color: #2ecc40;
-      text-shadow: 0 0 3px rgb(0 0 0 / 0.85);
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      font-family: inherit;
-      color: #2ecc40;
-      background: rgba(0,0,0,0.5);
-      border: 2px solid #2ecc40;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-    }
-    button:hover {
-      background: #2ecc40;
-      color: #000;
-    }
-  </style>
 </head>
 <body>
-  <h1>Welcome</h1>
-  <button type="button">Placeholder</button>
+  <div class="window" role="region" aria-label="Welcome Window">
+    <h1>Welcome</h1>
+    <button id="navThemeChanger" aria-label="Theme Changer">Themes</button>
+  </div>
 </body>
 </html>
