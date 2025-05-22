@@ -1,22 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>IceVortex</title>
+  <meta name="google-adsense-account" content="ca-pub-7277002269533329" />
 
-  <!-- Google AdSense -->
-  <meta name="google-adsense-account" content="ca-pub-7277002269533329">
+  <!-- AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7277002269533329" crossorigin="anonymous"></script>
 
-  <!-- Canonical link -->
-  <link rel="canonical" href="https://www.icevortex.site/">
-
-  <!-- Redirect to www fallback -->
+  <!-- Obfuscated redirect if not on www -->
   <script>
-    if (location.hostname === "icevortex.site") {
-      location.href = "https://www.icevortex.site" + location.pathname;
-    }
+    (function() {
+      var h = window.location.hostname;
+      if (h === 'icevortex.site') {
+        var p = window.location.pathname + window.location.search;
+        window.location.replace('https://www.icevortex.site' + p);
+      }
+    })();
+  </script>
+
+  <!-- Block Cloudflare RUM 404 errors -->
+  <script>
+    (function(open) {
+      XMLHttpRequest.prototype.open = function(method, url) {
+        if (url.includes('/cdn-cgi/rum')) return;
+        return open.apply(this, arguments);
+      };
+    })(XMLHttpRequest.prototype.open);
   </script>
 
   <style>
@@ -26,15 +35,3 @@
     footer { position: absolute; bottom: 1rem; font-size: 0.85rem; }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Welcome to IceVortex</h1>
-  </header>
-  <footer>
-    &copy; 2025 IceVortex
-  </footer>
-
-  <!-- Cloudflare Beacon -->
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"943d8485de243ce6","version":"2025.4.0-1-g37f21b1","r":1,"token":"567dca76376e41a6b9298fbb7955bcb4","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
-</body>
-</html>
