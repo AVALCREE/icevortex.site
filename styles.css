@@ -141,25 +141,43 @@
   src: url("/fonts/segoe_ui_semilight.ttf") format("truetype");
 }
 
-/* Body */
+/* Body and Background */
 body {
   background-color: #222222;
-  background: url("/images/backgrounds/longhorn.jpg") no-repeat center center fixed;
+  background: url("background.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   font-family: "Segoe UI Semilight", Tahoma, Geneva, Verdana, sans-serif, Arial, Helvetica, sans-serif;
-  scrollbar-color: rgba(21, 140, 36, 0.85) rgba(18, 18, 18, 0.8); /* darker green */
+  scrollbar-color: rgba(21, 140, 36, 0.85) rgba(18, 18, 18, 0.8);
   cursor: url("../images/cursors/normal.cur"), auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Background blur with pseudo-element */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url("background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -1;
 }
 
 /* Highlighting */
 ::selection {
-  background: #1a7c22; /* tweaked green */
+  background: #1a7c22;
 }
 
-/* Defaults */
+/* Headings */
 h1,
 h2,
 h3 {
@@ -187,13 +205,14 @@ h3 {
   font-weight: normal;
   font-family: "Segoe UI Semilight", Tahoma, Geneva, Verdana, sans-serif, Arial, Helvetica, sans-serif;
   position: relative;
+  color: #fff;
 }
 
 h4 {
   margin: 0;
 }
 
-/* Gloss */
+/* Gloss effect on h1 and h2 */
 h1:before,
 h2:before {
   background: linear-gradient(
@@ -216,6 +235,7 @@ h2:before {
   height: 17px;
 }
 
+/* Text shadows for links and inline text */
 a,
 p,
 span {
@@ -223,7 +243,7 @@ span {
 }
 
 a {
-  color: #2ecc40; /* brighter green */
+  color: #2ecc40;
   text-decoration: none;
 }
 
@@ -232,11 +252,12 @@ a:hover {
   cursor: url("../images/cursors/link.cur"), auto;
 }
 
+/* Text underline utility */
 .text-underline {
   text-decoration: underline;
 }
 
-/* External Links Symbols */
+/* External links icon */
 .external-links::after {
   content: "";
   display: inline-block;
@@ -247,7 +268,7 @@ a:hover {
   margin: 0 3px 0 5px;
 }
 
-/* Download Links Symbols */
+/* Download links */
 .download-links,
 .download-links-2 {
   flex-direction: row !important;
@@ -265,13 +286,14 @@ a:hover {
 }
 
 #mainContent a:visited {
-  color: #27ae60; /* dark green visited */
+  color: #27ae60;
 }
 
 p {
   margin: 0;
 }
 
+/* Range input styling */
 input[type="range"] {
   -webkit-appearance: none;
   width: 100%;
@@ -280,7 +302,7 @@ input[type="range"] {
 
 input[type="range"]::-webkit-slider-runnable-track {
   height: 10px;
-  background: #14641e; /* darker green track */
+  background: #14641e;
   border-radius: 5px;
 }
 
@@ -319,4 +341,38 @@ input[type="range"]:focus {
   background-color: rgba(21, 140, 36, 0.85);
   border-radius: 10px;
   border: 2px solid #1e1e1e;
+}
+
+/* Welcome Window style */
+.window {
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid #666;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  padding: 2rem 3rem;
+  min-width: 300px;
+  text-align: center;
+  user-select: none;
+  color: #fff;
+}
+
+/* Button #navThemeChanger */
+button#navThemeChanger {
+  margin-top: 1.5rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: inherit;
+  font-style: italic;
+  font-weight: 100;
+  color: #fff;
+  background: rgba(46, 204, 64, 0.9);
+  border: 2px solid #2ecc40;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+button#navThemeChanger:hover {
+  background: #2ecc40;
+  color: #000;
 }
